@@ -11,11 +11,9 @@
 
 $(document).ready(function() {
     
-    var emotions = ["awkward", "mind blown", "bored", "fabulous", "starving", "all the feels"]
+    var emotions = ["awkward", "mind blown", "bored", "fabulous", "starving", "all the feels"];
+    //API key and the set up for the queryURL with key, limit and question for topic included
 
-    APIKey = "eu8jkzxqW2DQ2qJSaMoqw29dZvqzeT40";
-    queryURL = "http://api.giphy.com/v1/gifs/search?q=" + emotions + "&api_key=" + APIKey + "&limit=10";
-    
     //creates buttons for all of the items in the array
     function renderButtons() {
         $("#emotions-view").empty();
@@ -23,7 +21,7 @@ $(document).ready(function() {
         for(var i=0; i<emotions.length; i++) {
             var emotionButton = $("<button>");
             emotionButton.addClass("emotion");
-            emotionButton.attr("data-name", emotions[i]);
+            emotionButton.attr("data-emotion", emotions[i]);
             emotionButton.text(emotions[i]);
             $("#emotions-view").append(emotionButton);
         }
@@ -38,20 +36,40 @@ $(document).ready(function() {
 
     renderButtons();
 
-    //$("button").on("click", function() {
-        //var emotion = $(this).attr("data-emotion");
-        //var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
-          //emotion + "&api_key=dc6zaTOxFJmzC&limit=10";
-  
-    //     $.ajax({
-    //       url: queryURL,
-    //       method: "GET"
-    //     }).then(function(response) {
-    //       // Step 1: Run this file, click a button, and see what the response object looks like in the browser's console.
-    //       // Open up the data key, then open up the 0th, element. Study the keys and how the JSON is structured.
-    //       console.log(queryURL);
-    //       console.log(response);
-    //     })
+    var APIKey = "eu8jkzxqW2DQ2qJSaMoqw29dZvqzeT40";
+    var dataEmotion = $(this).attr("data-emotion");
 
-    // })
+    var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + dataEmotion + "&api_key=" + APIKey + "&limit=10";
+
+
+    $("button").on("click", function() {
+
+        $.ajax({
+          url: queryURL,
+          method: "GET"
+        }).then(function(response) {
+          console.log(queryURL);
+          console.log(response);
+
+          var results = response.data;
+
+          for (var i=0; i<results.length; i++) {
+              var gifDiv = $("<div>");
+              var rating = results[i].rating;
+              var p = $("<p>").text("Rating: " + rating);
+              var image = $("<img>");
+            
+                image.attr("src", results[i].images.fixed_height.url);
+                image.attr("alt", "emotion image");
+
+            gifDiv.prepend(p);
+            gifDiv.prepend(image);
+
+            $("#gifs-go-here").prepend(gifDiv);
+          };
+
+        });
+
+    });
+
 });    
