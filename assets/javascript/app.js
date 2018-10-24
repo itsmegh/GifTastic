@@ -1,6 +1,6 @@
 //call the GIPHY API
-//create an array of items in a topic
-//create buttons for each of the items in the topic array
+//create an array of items in a topic - done!
+//create buttons for each of the items in the topic array - done!
 //when a user clicks a button, 10 gif images appear
 // make sure they are paused when they open
 //when the user clicks an image, it should animate
@@ -13,6 +13,10 @@ $(document).ready(function() {
     
     var emotions = ["awkward", "mind blown", "bored", "fabulous", "starving", "all the feels"]
 
+    APIKey = "eu8jkzxqW2DQ2qJSaMoqw29dZvqzeT40";
+    queryURL = "http://api.giphy.com/v1/gifs/search?q=" + emotions + "&api_key=" + APIKey + "&limit=10";
+    
+    //creates buttons for all of the items in the array
     function renderButtons() {
         $("#emotions-view").empty();
 
@@ -24,7 +28,7 @@ $(document).ready(function() {
             $("#emotions-view").append(emotionButton);
         }
     };
-
+    //when a user inputs an item, it is added to the array and a button is created
     $("#add-emotion").on("click", function(event) {
         event.preventDefault();
         var emotion = $("#emotion-input").val().trim();
