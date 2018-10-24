@@ -1,12 +1,12 @@
 //call the GIPHY API
 //create an array of items in a topic - done!
 //create buttons for each of the items in the topic array - done!
-//when a user clicks a button, 10 gif images appear
+//when a user clicks a button, 10 gif images appear - done!
 // make sure they are paused when they open
 //when the user clicks an image, it should animate
-//each GIF should display a rating
+//each GIF should display a rating - done!
 //allow users to input a new item in the topic array
-    //add a button
+    //add a button - done!
     //make sure it calls the new topic GIFs
 
 $(document).ready(function() {
@@ -37,12 +37,13 @@ $(document).ready(function() {
     renderButtons();
 
     var APIKey = "eu8jkzxqW2DQ2qJSaMoqw29dZvqzeT40";
-    var dataEmotion = $(this).attr("data-emotion");
-
-    var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + dataEmotion + "&api_key=" + APIKey + "&limit=10";
-
 
     $("button").on("click", function() {
+
+        var dataEmotion = $(this).attr("data-emotion");
+        console.log(dataEmotion);
+
+        var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + dataEmotion + "&api_key=" + APIKey + "&limit=10";
 
         $.ajax({
           url: queryURL,
@@ -69,6 +70,7 @@ $(document).ready(function() {
           };
 
         });
+        renderButtons();
 
     });
 
