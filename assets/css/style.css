@@ -1,0 +1,29 @@
+body {
+    background-image: url(../images/memphis-colorful.png);
+}
+
+#add-emotion {
+    margin: 10px;
+    font-size: 15px;
+}
+
+.emotion {
+    margin: 25px 10px 10px 10px;
+    color: teal;
+    font-size: 18px;
+}
+
+label {
+    margin: 25px;
+    font-size: 20px;
+}
+
+h1 {
+    font-size: 40px;
+    font-family: roboto, sans-serif;
+}
+
+h3 {
+    font-size: 25px;
+    font-style: italic;
+}

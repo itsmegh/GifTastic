@@ -21,11 +21,13 @@ $(document).ready(function() {
         for(var i=0; i<emotions.length; i++) {
             var emotionButton = $("<button>");
             emotionButton.addClass("emotion");
+            emotionButton.addClass("btn btn-secondary btn-sm");
             emotionButton.attr("data-emotion", emotions[i]);
             emotionButton.text(emotions[i]);
             $("#emotions-view").append(emotionButton);
         }
     };
+    
     //when a user inputs an item, it is added to the array and a button is created
     $("#add-emotion").on("click", function(event) {
         event.preventDefault();
@@ -38,7 +40,7 @@ $(document).ready(function() {
 
     var APIKey = "eu8jkzxqW2DQ2qJSaMoqw29dZvqzeT40";
 
-    $("button").on("click", function() {
+    $(".emotion").on("click", function() {
 
         var dataEmotion = $(this).attr("data-emotion");
         console.log(dataEmotion);
@@ -55,22 +57,25 @@ $(document).ready(function() {
           var results = response.data;
 
           for (var i=0; i<results.length; i++) {
-              var gifDiv = $("<div>");
+              var gifDiv = $("<div>")
+                    .addClass("col-md-4");
               var rating = results[i].rating;
-              var p = $("<p>").text("Rating: " + rating);
-              var image = $("<img>");
+              var pDiv = $("<div>")
+                    //.addClass(caption)
+                    .text("Rating: " + rating);
+              var image = $("<img>")
+                    //.addClass(thumbnail);
             
                 image.attr("src", results[i].images.fixed_height.url);
                 image.attr("alt", "emotion image");
 
-            gifDiv.prepend(p);
+            gifDiv.prepend(pDiv);
             gifDiv.prepend(image);
 
             $("#gifs-go-here").prepend(gifDiv);
           };
 
         });
-        renderButtons();
 
     });
 

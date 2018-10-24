@@ -28,15 +28,25 @@
         </div>
        
         <div id="emotions-view"></div>
-
-        <form id="request-form">
-            <label for="movie-input">What are you feeling? Add it here! </label>
-            <input type="text" id="emotion-input"><br>
-            <!--button to trigger new emotion to be added-->
-            <input id="add-emotion" type="submit" value="Press the Magic Button">
+        <br>
+        <br>
+        <form class="form-inline" id="request-form">
+            <div class="form-group mb-2">
+                <label for="emotion-input">What are you feeling? Add it here! </label>
+            </div>
+            <div class="form-group mb-2">
+                <input type="text" id="emotion-input">
+            </div>
+            <div class="form-group mb-2">
+                <!--button to trigger new emotion to be added-->
+                <input id="add-emotion" class="btn btn-primary btn-sm mb-2" type="submit" value="Press the Magic Button">
+            </div>
+           
         </form>
-
+    <div class="row">
         <div id="gifs-go-here"></div>
+
+    </div>    
         
     </div>
 
