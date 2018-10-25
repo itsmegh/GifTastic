@@ -40,7 +40,7 @@ $(document).ready(function() {
 
     var APIKey = "eu8jkzxqW2DQ2qJSaMoqw29dZvqzeT40";
 
-    $(".emotion").on("click", function() {
+    $(document).on("click", ".emotion", function() {
 
         var dataEmotion = $(this).attr("data-emotion");
         console.log(dataEmotion);
@@ -79,4 +79,5 @@ $(document).ready(function() {
 
     });
 
-});    
+});
+
