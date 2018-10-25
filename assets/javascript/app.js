@@ -45,7 +45,7 @@ $(document).ready(function() {
         var dataEmotion = $(this).attr("data-emotion");
         console.log(dataEmotion);
 
-        var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + dataEmotion + "&api_key=" + APIKey + "&limit=10";
+        var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + dataEmotion + "&api_key=" + APIKey + "&limit=10";
 
         $.ajax({
           url: queryURL,
