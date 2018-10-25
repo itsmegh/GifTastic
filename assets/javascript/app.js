@@ -58,16 +58,19 @@ $(document).ready(function() {
 
           for (var i=0; i<results.length; i++) {
               var gifDiv = $("<div>")
-                    .addClass("col-md-4");
+                    .addClass("col-md-5");
               var rating = results[i].rating;
               var pDiv = $("<div>")
                     //.addClass(caption)
                     .text("Rating: " + rating);
-              var image = $("<img>")
-                    //.addClass(thumbnail);
+              var image = $("<img>");
             
-                image.attr("src", results[i].images.fixed_height.url);
+                image.attr("src", results[i].images.fixed_height_still.url);
+                image.attr("data-animate", results[i].images.fixed_height.url);
+                image.attr("data-still", results[i].images.fixed_height_still.url);
+                image.attr("data-state", "still")
                 image.attr("alt", "emotion image");
+                image.addClass("gif");
 
             gifDiv.prepend(pDiv);
             gifDiv.prepend(image);
@@ -75,7 +78,23 @@ $(document).ready(function() {
             $("#gifs-go-here").prepend(gifDiv);
           };
 
+          $(".gif").on("click", function() {
+            var state = $(this).attr("data-state");
+            console.log(state);
+    
+            if(state === "still") {
+                $(this).attr("src", $(this).attr("data-animate"));
+                $(this).attr("data-state", "animate");
+            } else {
+                $(this).attr("src", $(this).attr("data-still"));
+                $(this).attr("data-state", "still");
+            }
         });
+
+        });
+
+        
+    
 
     });
 

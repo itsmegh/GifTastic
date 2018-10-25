@@ -27,3 +27,9 @@ h3 {
     font-size: 25px;
     font-style: italic;
 }
+
+.col-md-5 {
+    margin-left: 15px;
+    padding: 5px;
+    align-content: center;
+}
