@@ -4,7 +4,8 @@ body {
 
 #add-emotion {
     margin: 10px;
-    font-size: 15px;
+    font-size: 20px;
+    font-family: 'Mystery Quest', cursive;
     background-color: #bc8f8f;
     color: snow;
 }
@@ -12,23 +13,33 @@ body {
 .emotion {
     margin: 25px 10px 10px 10px;
     color: #31698a;
-    font-size: 18px;
+    font-family: 'Mystery Quest', cursive;
+    font-size: 25px;
+}
+
+#emotion-input {
+    font-family: 'Quicksand', sans-serif;
+    color: #323232;
+
 }
 
 label {
     margin: 25px;
     font-size: 20px;
+    font-family: 'Quicksand', sans-serif;
+    color: #323232;
 }
 
 h1 {
-    font-size: 40px;
-    font-family: roboto, sans-serif;
+    font-size: 50px;
+    font-family: 'Mystery Quest', cursive;
     margin: 25px;
+    color: #323232;
 }
 
 h3 {
     font-size: 25px;
-    font-style: italic;
+    font-family: 'Quicksand', sans-serif;
     margin: 25px;
     color: #31698a;
 }
